@@ -83,7 +83,7 @@
         .message_grey, .message_blue {
             width: calc(50% - 20px);
             margin-bottom: 5px;
-            padding: 5px;
+            padding: 20px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             border-radius: 20px;
             overflow: hidden;
@@ -110,6 +110,18 @@
         p{
             font-size: 18px;
             line-height: 1.5;
+        }
+        .education-section {
+            display: flex;
+            align-items: center;
+        }
+
+        /* 이미지 스타일 */
+        .education-image {
+            width: 45px; /* 이미지의 원하는 너비 */
+            height: auto; /* 이미지의 원래 비율을 유지 */
+            margin-right: 20px; /* 텍스트와 이미지 간 간격 조절 */
+            
         }
         img{
             max-width:100%;
@@ -213,11 +225,24 @@
         </div>
     </div>
 
-        <h2><br><br>Education</h2>
-        <hr>
-        <p>2022-present Korea University Business School</p>
-        <p>2024 Exchange student @ University of Southern California</p>
-        </ul>
+        <div class="education-section">
+            <!-- 첫 번째 이미지와 텍스트 -->
+            <img class="education-image" src="img/고려대.png" alt="고려대 이미지">
+            <div>
+                <h2>Education</h2>
+                <hr>
+                <p>2022 ~ Korea University Business School</p>
+            </div>
+        </div>
+
+        <div class="education-section">
+            <!-- 두 번째 이미지와 텍스트 -->
+            <img class="education-image" src="img/trojan_logo.svg" alt="USC 로고 이미지">
+            <div>
+                
+                <p>2024 Exchange student @ University of Southern California</p>
+            </div>
+        </div>
 
         <h2>Portfolio</h2>
         <hr>
