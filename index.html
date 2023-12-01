@@ -72,12 +72,28 @@
             border-radius: 50px;
             margin: 0 auto; /* 가운데 정렬을 위해 */
         }
-    
+        .award_card{
+            margin-right: 1px;
+            padding: 10px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 30px;
+            overflow: hidden;
+        }
+        .award_card img {
+            width: 100%; /* 부모 요소에 대한 100% 너비를 가지도록 설정 */
+            height: 120px; /* 비율에 맞게 높이를 조절 */
+            object-fit: cover;
+            display: block; /* 인라인 요소 간 간격 조절을 위해 */
+            border-radius: 30px;
+            margin: 0 auto; /* 가운데 정렬을 위해 */
+        }
         .message_container {
             display: flex; /* Flexbox를 사용하여 열 배치 */
             flex-wrap:wrap; /* 화면 크기에 따라 자동으로 줄 바꿈 */
             justify-content: center;
             width: 50%;
+            align-items: center;
         }
         .message_grey, .message_blue {
             width: calc(50% - 20px);
@@ -113,6 +129,7 @@
         .education-section {
             display: flex;
             align-items: center;
+            flex-wrap: nowrap;
         }
 
         /* 이미지 스타일 */
@@ -228,7 +245,6 @@
         <h2>Education</h2>
         <hr>
         <div class="education-section">
-            <!-- 첫 번째 이미지와 텍스트 -->
             <img class="education-image" src="img/KU.png" alt="고려대 이미지">
             <div>
                 
@@ -237,7 +253,6 @@
         </div>
 
         <div class="education-section">
-            <!-- 두 번째 이미지와 텍스트 -->
             <img class="education-image" src="img/trojan_logo.svg" alt="USC 로고 이미지">
             <div>
                 
@@ -271,28 +286,40 @@
 
         <h2>Award</h2>
         <hr>
-        <h3>2nd Place in 2023 Korea University hackathon</h3>
-        <ul>
-            <li>
-                <p>Team leader, Planner</p>
-            </li>
-            <li><a href="img/해커톤.png">Download image</a></li>
-        </ul>
-        <h3>3rd place in 2023 Korea University Data Analytics for Business contest</h3>
-        <ul>
-            <li>
-                <p>Development of an algorithm to optimize the traffic light cycle</p>
-            </li>
-            <li><a href="https://github.com/hyoungjungyi/BDA-contest/tree/main">Check my github</a></li>
-        </ul>
-        <h3>2023 Public data contest</h3>
-        <ul>
-            <li>
-                <p>Urban Housing Vulnerability and Drug Problems: An Interpretive Study on San Francisco and Seoul</p>
-            </li>
-            <li><a href="img/공공데이터공모전_최종.hwp">Download document</a></li>
-            <li><a href="https://github.com/hyoungjungyi/public-data-contest">Check my github</a></li>
-        </ul>
+        
+            <h3>2nd Place in 2023 Korea University hackathon</h3>
+            <ul>
+                <div class="container">
+                        <div class="award_card">
+                            <img src="img/hackathon.JPG" height="50px" width="50px" alt="hackathon Image">
+                        </div>
+                        
+                        <div class="message_container">
+                            <p>Team leader, Planner</p>
+                            <ul></ul>
+                            <a href="img/눈치발표자료.pdf">Download pdf</a>
+                        </div>                  
+                </div> 
+            </ul>
+            <h3>3rd place in 2023 Korea University Data Analytics for Business contest</h3>
+            <ul>
+                <div class="container">
+                    <div class="award_card">
+                        <img src="img/dab.JPG"height="50px" width="50px" alt="DAB Image">
+                    </div>
+                    <div class="message_container">
+                            <p>Development of an algorithm to optimize the traffic light cycle</p>
+                            <a href="https://github.com/hyoungjungyi/BDA-contest/tree/main">Check my github</a>
+                    </div> 
+
+                </div>
+            </ul>
+            <h3>2023 Public data contest</h3>
+            <ul>
+                    <p>Urban Housing Vulnerability and Drug Problems: An Interpretive Study on San Francisco and Seoul</p>
+                    <p><a href="img/공공데이터공모전_최종.hwp">Download document</a></p>
+                    <p><a href="https://github.com/hyoungjungyi/public-data-contest">Check my github</a></p>
+            </ul>
 
         <h2>Language</h2>
 		<hr>
