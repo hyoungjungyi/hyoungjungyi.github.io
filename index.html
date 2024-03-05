@@ -6,217 +6,12 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
     <title>rondongyi</title>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width.initial-scale=1.0">
     <style>
         /*CSS code to style your page */
-        body{
-            font-family: Arial, Helvetica, sans-serif;
-            background-image:linear-gradient(#c3deff,#ffffff);
-            margin:0;
-            padding:0;
-            min-height: 100vh;
-            box-sizing:border-box;
-        }
-        .center {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
 
-        header{
-            background-color: #ffffff;
-            color:rgb(0, 0, 0);
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-            align-items: center;
-            font-family: sans-serif;
-        }
-        h1{
-            font-size: 36px;
-            margin:0;
-            text-align: center;
-            align-items: center;
-        }
-        h2{
-            margin-top: 100px;
-            font-size: 30px;
-        }
-        h3{
-            font-size: 18px;
-            font-size: 20px;
-            margin: 0;
-        }
-        h4{
-            font-size: 12px;
-            margin:0;
-            text-align: center;
-            align-items: center;
-        }
-        .container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: row;
-            text-align: center;
-            margin: 1px;
-        }
-
-        .profile_card,
-        .award_card,
-        .message_blue,
-        .message_grey {
-            margin-right: 1px;
-            padding: 10px;
-            background-color: #ffffff;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 50px;
-            overflow: hidden; /* 이미지의 크기에 따라 profile_card가 조절되도록 함 */
-        }
-        .profile_card img,
-        .award_card img {
-            width: 100%; /* 부모 요소에 대한 100% 너비를 가지도록 설정 */
-            height: 200px; /* 비율에 맞게 높이를 조절 */
-            object-fit: cover;
-            display: block; /* 인라인 요소 간 간격 조절을 위해 */
-            border-radius: 50px;
-            margin: 0 auto; /* 가운데 정렬을 위해 */
-        }
-        .award_card img {
-            width: 90px; /* 부모 요소에 대한 100% 너비를 가지도록 설정 */
-            height: 90px; /* 비율에 맞게 높이를 조절 */
-            object-fit: cover;
-            display: block; /* 인라인 요소 간 간격 조절을 위해 */
-            border-radius: 30px;
-            margin: 0 auto; /* 가운데 정렬을 위해 */
-        }
-        .message_container {
-            display: flex; /* Flexbox를 사용하여 열 배치 */
-            flex-wrap:wrap; /* 화면 크기에 따라 자동으로 줄 바꿈 */
-            justify-content: center;
-            width: 50%;
-            align-items: center;
-        }
-        .message_grey,
-        .message_blue {
-            width: calc(50% - 20px);
-            margin-bottom: 5px;
-            padding: 20px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 20px;
-            overflow: hidden;
-            position: center;
-            text-align: center;
-            display: inline-block;
-        }
-
-        .message_grey .message_text, .message_blue .message_text {
-            font-size: 12px;
-            line-height: 1.5;
-            color: white;
-        }
-        .message_grey .message_text {
-            color: black;
-        }
-        .message_blue {
-            background-color: #0078FF;
-            margin-left: 70px; /* profile card와 message_blue 간격 조절 */
-        }
-        .message_grey {
-            background-color: #E9E9EB;
-        }
-        p{
-            font-size: 18px;
-            line-height: 1.5;
-        }
-        .education-section {
-            display: flex;
-            align-items: center;
-            flex-wrap: nowrap;
-        }
-
-        /* 이미지 스타일 */
-        .education-image {
-            margin-left:10px;
-            width: 20px; /* 이미지의 원하는 너비 */
-            height: auto; /* 이미지의 원래 비율을 유지 */
-            margin-right: 20px; /* 텍스트와 이미지 간 간격 조절 */
-            
-        }
-        .image-container {
-            display: flex;
-            align-items: center; /* 수직 가운데 정렬 */
-            justify-content: center;
-            flex-wrap: nowrap;
-        }
-        .image-container img{
-            margin-right: 10px;
-            width:30px;
-            height:30px;
-            border-radius: 10px;
-        }
-        img{
-            max-width:100%;
-            height:auto;
-            border-radius: 15px;
-        }
-    
-        /*Media query for small devices*/
-        @media only screen and (max-width:600px){
-            header{
-                padding: 10px;
-            }
-            h1{
-                font-size: 36px;
-            }
-            h2{
-                
-                font-size: 22px;
-            }
-            h3{
-                margin-top:10px;
-            }
-
-            main{
-                margin: 10px;
-                padding: 10px;
-            }
-            p{
-                font-size: 16px;
-                line-height: 1.3;
-            }
-            div{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-                a>img{
-                height:80%;
-                width:60%
-            }
-            ul{
-                margin-top: 10px;
-            }
-            a>img{
-                margin-top:10px;
-            }
-            ul>li{
-                margin-bottom: 10px;
-            }
-            footer{
-                padding: 10px;
-                font-size: 14px;
-                text-align: center;
-                color:#333
-            }
-            .image-container {
-                display: flex;
-                align-items: center; /* 수직 가운데 정렬 */
-                justify-content: center;
-                flex-wrap: nowrap;
-            }
-        }
     </style>
 </head>
 <body>
@@ -234,7 +29,7 @@
             <h4><span>🌀</span>
         </header>
     <main>
-        <h1>Hyunjung Yi (Haley) 이현정 <br><br></h1>
+        <h1>Haley Yi 이현정 <br><br></h1>
         <div class="container">
             <div class="profile_card">
               <img src="img/profile_image.jpg" height="100px" width="100px" alt="Profile Image">
@@ -244,13 +39,10 @@
                 <div class="message_text">Hello 'w'</div>
               </div>
               <div class="message_blue">
-                <div class="message_text">tanghulu addict</div>
+                <div class="message_text">South Korea, Seoul</div>
               </div>
               <div class="message_grey">
-                <div class="message_text">Business major + Software Technology & Entrepreneurship Program </div>
-              </div>
-              <div class="message_blue">
-                <div class="message_text">📍South Korea, Seoul. currently in LA</div>
+                <div class="message_text">Business + Software Technology & Entrepreneurship Program </div>
               </div>
             </div>
           </div>
@@ -285,15 +77,15 @@
         </ul>
         <h3>Korea University Business School Band (2022.3-2022.8)</h3>
         <ul>
-            <li><p>self taught electric guitar</p></li>
+            <li><p>electric guitar</p></li>
         </ul>
         <h3>Big Data Analysis club (2023.3-2023.8)</h3>
         <ul>
             <li><p>beginner class for python data analysis study</p></li>
         </ul>
-        <h3> USC scope (2024.2-2024.5)</h3>
+        <h3> Scope (2024.2-2024.5)</h3>
         <ul>
-            <li><p> 24 Spring cohort </p></li>
+            <li><p> CS club at USC. 24 Spring cohort </p></li>
         </ul>
         </ul>
         <h2>Work experience</h2>
@@ -307,7 +99,7 @@
         <h2>Tools</h2>
         <hr>
         <ul>
-            <li>Python, R studio, Figma, html, css, swift</li>
+            <li>Python, R studio, java, Figma, html, css, swift</li>
         </ul>
         </h3>
         
@@ -323,8 +115,11 @@
                         </div>
                         
                         <div class="message_container">
-                            <p>Team leader, Planner</p>
-                            <p><a href="img/눈치발표자료.pdf">Download pdf</a></p>
+                        <ul>
+                            <li>Team leader, Planner</li>
+                            <li><a href="img/눈치발표자료.pdf">Download pdf</a></li>
+                        </ul>
+                            
                         </div>                  
                 </div> 
             </ul>
@@ -335,19 +130,42 @@
                         <img src="img/dab.JPG"height="50px" width="50px" alt="DAB Image">
                     </div>
                     <div class="message_container">
-                            <p>traffic light cycle optimization algorithm</p>
-                            <p><a href="https://github.com/hyoungjungyi/BDA-contest/tree/main">Check my github</a></p>
-                            <p><a href="https://youtu.be/v-eg_VQNTUI?si=xyHpFjmqhvyGmbKy">presentation video_last speaker</a></p>
+                        <ul>
+                            <li>traffic light cycle optimization algorithm</li>
+                            <li><a href="https://github.com/hyoungjungyi/BDA-contest/tree/main">Check my github</a></li>
+                            <li><a href="https://youtu.be/v-eg_VQNTUI?si=xyHpFjmqhvyGmbKy">presentation video_last speaker</a></li>
+                        </ul>
+                            
                     </div> 
 
                 </div>
             </ul>
             <h3>2023 Public data contest</h3>
             <ul>
-                    <p>Urban Housing Vulnerability and Drug Problems: An Interpretive Study on San Francisco and Seoul</p>
-                    <p><a href="img/공공데이터공모전_최종.hwp">Download document</a></p>
-                    <p><a href="https://github.com/hyoungjungyi/public-data-contest">Check my github</a></p>
+                    <li>Urban Housing Vulnerability and Drug Problems: An Interpretive Study on San Francisco and Seoul</li>
+                    <li><a href="img/공공데이터공모전_최종.hwp">Download document</a></li>
+                    <li><a href="https://github.com/hyoungjungyi/public-data-contest">Check my github</a></li>
             </ul>
+            <h3>3rd place in 2024 Athena Hacks</h3>
+            <ul>
+                <div class="container">
+                    <div class="award_card">
+                        <img src="img/athenahacks.JPG"height="50px" width="50px" alt="DAB Image">
+                    </div>
+                    <div class="message_container">
+                        <ul>
+                            <li>hackathon at Southern California. front-end developer</li>
+                            <li>Won 'best beginner hack'</li>
+                            <li>web for university students to find ridesharers to the airport.</li>
+                            <li><a href="https://github.com/jasminegau/Bon-bon-voyage/tree/main">Check my github</a></li>
+                        </ul>
+                            
+            
+                    </div> 
+
+                </div>
+            </ul>
+
 
         <h2>Language</h2>
 		<hr>
