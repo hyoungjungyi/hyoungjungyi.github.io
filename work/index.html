@@ -6,9 +6,21 @@
 <title>personal website - ver2.0</title>
 <link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-
 </head>
+<style>
+    .carousel {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        width: 100%; /* Adjust this to control the width of the viewing area */
+    }
+</style>
 <body>
     <nav id="navbar">
         <div id="nav-links">
@@ -19,24 +31,36 @@
             <a href="../photos/index.html">Photos</a>
         </div>
     </nav>
-</body>
-
-<html>
-    <div class="container">
-        <div class="award_card">
-            <img src="../image/work_yelp.png"style="width: 200px; height: auto;">
-            <h3>Research assistant in USC Marshall (2024.01-present)</h3>
-            <ul>
-                <li>advised by Professor Zijun Gao</li>
-                <li>research to detect spam reviews</li>
-                <li>algorithm to predict restaurant number rating based on text reviews
-                </a></li>
-                <li>linear regression, lasso, xgboost</li>
-                <li><a href="https://github.com/hyoungjungyi/YelpReviewPrediction">Check my github</a></li>
-                <br>
-                <li>R, R studio, SQL, statistics, data science</li>
-            </ul>
+        <div class="container">
+            <div class="award_card">
+                <img src="../img/work_yelp.jpg" style="width: 200px; height: auto;">
+                <h3>Research assistant in USC Marshall (2024.01-2024.05)</h3>
+                <ul>
+                    <li>advised by Professor Zijun Gao</li>
+                    <li>research to detect spam reviews</li>
+                    <li>algorithm to predict restaurant number rating based on text reviews</li>
+                    <li>linear regression, lasso, xgboost</li>
+                    <li><a href="https://github.com/hyoungjungyi/YelpReviewPrediction">Check my github</a></li>
+                    <br>
+                    <li>R, R studio, SQL, statistics, data science</li>
+                </ul>
+            </div>
+            
+            <div class="award_card">
+                <img src="../img/dmis.png" style="width: 200px; height: auto;">
+                <h3>Research Intern in DMIS lab (2024.06-present)</h3>
+                <ul>
+                    <li>Korea University Computer science lab. Professor Jaewoo Kang</li>
+                    <li><a href="https://dmis.korea.ac.kr/">lab website</a></li>
+                    <li>research to optimize portfolio investment</li>
+                    <li>Data preprocessing and AI test runs</li>
+                    <li>linear regression, lasso, xgboost</li>
+                    <br>
+                    <li>Python, AI</li>
+                </ul>
+            </div>
+    
+            
         </div>
-    </div>
-<script src="../swipe.js"></script>
 </body>
+</html>
