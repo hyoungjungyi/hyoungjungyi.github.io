@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>personal website - ver2.0</title>
-<link rel="stylesheet" href="../style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>personal website - ver2.0</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.1-min.js.gz"></script>
+    <script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-1.8.0-min.js.gz"></script>
+    <script>
+        window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1}));
+        window.amplitude.init('ac7c17c3c482117b7eb4ca021d83a325', {"autocapture":{"elementInteractions":true}});
+    </script>
 </head>
-<script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.1-min.js.gz"></script>
-<script src="https://cdn.amplitude.com/libs/plugin-session-replay-browser-1.8.0-min.js.gz"></script>
-<script>window.amplitude.add(window.sessionReplay.plugin({sampleRate: 1}));window.amplitude.init('ac7c17c3c482117b7eb4ca021d83a325', {"autocapture":{"elementInteractions":true}});</script>
 <body>
     <nav id="navbar">
         <div id="nav-links">
@@ -19,10 +22,7 @@
             <a href="../photos/index.html">Photos</a>
         </div>
     </nav>
-</body>
 
-
-<html>
     <div class="main_container">
         <div class="profile_card">
             <img src="../img/profile_image.jpg" height="100px" width="100px" alt="Profile Image">
@@ -30,9 +30,10 @@
         <div class="message_container">
             <h2 style="display: block;">Haley Yi</h2> 
             <h3 style="display: block;">Undergrad @Korea Univ Business School</h3>
-            <h3 style="display: block;">Exchange @USC marshall</h3>
+            <h3 style="display: block;">Exchange @USC Marshall</h3>
             <br>
-            <h4>Hello my name is Hyunjung (Haley) Yi, Business major student in korea university. I am currently pursuing a convergence major in Software technology & Entrepreneurship program. I always seek better ways to use AI.</h4>
+            <h4>Hello my name is Hyunjung (Haley) Yi, Business major student in Korea University. I am currently pursuing a convergence major in Software Technology & Entrepreneurship program. I always seek better ways to use AI.</h4>
         </div>
     </div>
+</body>
 </html>
