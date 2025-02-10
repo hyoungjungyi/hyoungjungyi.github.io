@@ -10,7 +10,8 @@ from matplotlib.dates import DateFormatter, date2num, num2date
 import plotly.express as px
 import plotly.graph_objects as go
 from datetime import datetime, timedelta
-
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+CREDENTIALS_PATH = os.path.join(BASE_DIR, "credentials", "deep_chronos_google_api.json")
 print("current directory", os.getcwd())
 
 # Streamlit Page Configuration
@@ -18,7 +19,7 @@ st.set_page_config(page_title="Portfolio Allocation Over Time", layout="wide")
 
 # 🔹 Google Sheets API 인증 설정
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_name(os.path.join(os.getcwd(), "credentials", "deep_chronos_google_api.json"), scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name(CREDENTIALS_PATH, scope)
 client = gspread.authorize(creds)
 SPREADSHEET_URL = "https://docs.google.com/spreadsheets/d/1bRkd6crVHwwZes4bGBT1CzxOVGBo9C38g9aOwiZM5mE/edit#gid=0"
 spreadsheet = client.open_by_url(SPREADSHEET_URL)
