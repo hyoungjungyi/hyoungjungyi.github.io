@@ -16,11 +16,13 @@ function App() {
       </div>
 
       {/* 오른쪽 MindMap 영역 */}
-      <div className="flex justify-center items-center w-full md:w-1/2 p-10">
-        <div className="w-full h-full" style={{ boxSizing: 'border-box' }}>
+      <div className="flex justify-center items-center w-full md:w-1/2">
+        <div className="w-full h-full max-w-[90%] mx-auto" style={{ boxSizing: 'border-box' }}>
           <MindMap />
         </div>
       </div>
+
+
 
     </div>
   );
