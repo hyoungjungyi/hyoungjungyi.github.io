@@ -18,6 +18,49 @@
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(2px);
+  z-index: 10;
+}
+
+.modal-card {
+  background: #ffffff;
+  color: #111111;
+  padding: 24px;
+  border-radius: 16px;
+  width: min(360px, 90vw);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.modal-close {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  color: inherit;
+}
+
+.modal-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: #0f62fe;
+  font-weight: 600;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);

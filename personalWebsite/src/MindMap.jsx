@@ -150,24 +150,45 @@ export default function MindMap() {
           return undefined; // hover는 nodeLabel로 처리
         }}
         onNodeClick={(node) => {
-          // 하위 노드만 모달 띄우기
-          if (node.description) {
-            setSelectedNode(node);
-          }
+          // 모든 노드 클릭 시 팝업 표시
+          setSelectedNode(node);
         }}
         backgroundColor="#cacacaff"
       />
 
       {selectedNode && (
-        <div className="modal">
-          <h2>{selectedNode.id}</h2>
-          <p>{selectedNode.description}</p>
-          {selectedNode.link && (
-            <a href={selectedNode.link} target="_blank" rel="noreferrer">
-              자세히 보기
-            </a>
-          )}
-          <button onClick={() => setSelectedNode(null)}>닫기</button>
+        <div
+          className="modal-overlay"
+          onClick={() => setSelectedNode(null)}
+        >
+          <div
+            className="modal-card"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="modal-header">
+              <h2>{selectedNode.id}</h2>
+              <button
+                className="modal-close"
+                aria-label="닫기"
+                onClick={() => setSelectedNode(null)}
+              >
+                ×
+              </button>
+            </div>
+            <p>
+              {selectedNode.description || "아직 설명이 없어요. 곧 업데이트될 예정입니다."}
+            </p>
+            {selectedNode.link && (
+              <a
+                className="modal-link"
+                href={selectedNode.link}
+                target="_blank"
+                rel="noreferrer"
+              >
+                자세히 보기
+              </a>
+            )}
+          </div>
         </div>
       )}
     </>
