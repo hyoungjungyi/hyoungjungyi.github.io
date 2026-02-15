@@ -1,13 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>personal website - ver2.0</title>
-<link rel="stylesheet" href="../style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Photos - Hyunjung Yi">
+    <title>Photos - Hyunjung Yi</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        /* Simple, clean photo gallery */
+        .photo-gallery {
+            padding: 80px 32px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .photo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .photo-grid img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            animation: scaleIn 0.6s ease both;
+        }
+
+        /* Staggered animations */
+        .photo-grid img:nth-child(1) {
+            animation-delay: 0.05s;
+        }
+
+        .photo-grid img:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .photo-grid img:nth-child(3) {
+            animation-delay: 0.15s;
+        }
+
+        .photo-grid img:nth-child(4) {
+            animation-delay: 0.2s;
+        }
+
+        .photo-grid img:nth-child(5) {
+            animation-delay: 0.25s;
+        }
+
+        .photo-grid img:nth-child(6) {
+            animation-delay: 0.3s;
+        }
+
+        .photo-grid img:nth-child(7) {
+            animation-delay: 0.35s;
+        }
+
+        .photo-grid img:nth-child(8) {
+            animation-delay: 0.4s;
+        }
+
+        .photo-grid img:nth-child(9) {
+            animation-delay: 0.45s;
+        }
+
+        .photo-grid img:nth-child(10) {
+            animation-delay: 0.5s;
+        }
+
+        .photo-grid img:nth-child(11) {
+            animation-delay: 0.55s;
+        }
+
+        .photo-grid img:nth-child(12) {
+            animation-delay: 0.6s;
+        }
+
+        .photo-grid img:nth-child(13) {
+            animation-delay: 0.65s;
+        }
+
+        .photo-grid img:nth-child(14) {
+            animation-delay: 0.7s;
+        }
+
+        .photo-grid img:nth-child(15) {
+            animation-delay: 0.75s;
+        }
+
+        .photo-grid img:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .photo-gallery {
+                padding: 60px 20px;
+            }
+
+            .photo-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .photo-gallery {
+                padding: 40px 16px;
+            }
+
+            .photo-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+        }
+    </style>
 </head>
+
 <body>
     <nav id="navbar">
+        <button class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
         <div id="nav-links">
             <a href="../index.html">Main</a>
             <a href="../awards/index.html">Awards</a>
@@ -16,31 +138,42 @@
             <a href="../photos/index.html">Photos</a>
         </div>
     </nav>
-    <div class="photo_container">
-        <br>
-        <img src="../miscPhotos/IMG_0440.jpeg" style="width: 200px; height: auto;">
-        <img src="../miscPhotos/IMG_1104.jpg" style="width: 200px; height: auto;">
-        <img src="../miscPhotos/IMG_1158.jpg" style="width: 200px; height: auto;">
-        <br>
-        <img src="../miscPhotos/IMG_1181.jpg" style="width: 200px; height: auto;">
-        <img src="../miscPhotos/IMG_1479.jpg" style="width: 200px; height: auto;">
-        <img src="../miscPhotos/IMG_1554.jpg" style="width: 200px; height: auto;">
-        <br>
-        <img src="../miscPhotos/IMG_8915.jpg" style="width: 200px; height: auto;">
-        <img src="../miscPhotos/IMG_9600.jpg" style="width: 200px; height: auto;">
-        <img src="../image/IMG_2611.JPG" style="width: 200px; height: auto;">
-        <br>
-        <img src="../image/Screenshot 2024-04-04 at 3.18.12 PM.png" style="width: 200px; height: auto;">
-        <img src="../image/IMG_1507.JPG" style="width: 200px; height: auto;">
-        <img src="../image/Screenshot 2024-04-04 at 3.18.20 PM.png" style="width: 200px; height: auto;">
-        <br>
-        <img src="../image/IMG_2610.JPG" style="width: 200px; height: auto;">
-        <img src="../image/Screenshot 2024-04-04 at 3.18.28 PM.png" style="width: 200px; height: auto;">
-        <img src="../image/IMG_2609.JPG" style="width: 200px; height: auto;">
-        
 
-
-
+    <div class="photo-gallery">
+        <div class="photo-grid">
+            <img src="../miscPhotos/IMG_0440.jpeg" alt="Photo 1">
+            <img src="../miscPhotos/IMG_1104.jpg" alt="Photo 2">
+            <img src="../miscPhotos/IMG_1158.jpg" alt="Photo 3">
+            <img src="../miscPhotos/IMG_1181.jpg" alt="Photo 4">
+            <img src="../miscPhotos/IMG_1479.jpg" alt="Photo 5">
+            <img src="../miscPhotos/IMG_1554.jpg" alt="Photo 6">
+            <img src="../miscPhotos/IMG_8915.jpg" alt="Photo 7">
+            <img src="../miscPhotos/IMG_9600.jpg" alt="Photo 8">
+            <img src="../image/IMG_2611.JPG" alt="Photo 9">
+            <img src="../image/Screenshot 2024-04-04 at 3.18.12 PM.png" alt="Photo 10">
+            <img src="../image/IMG_1507.JPG" alt="Photo 11">
+            <img src="../image/Screenshot 2024-04-04 at 3.18.20 PM.png" alt="Photo 12">
+            <img src="../image/IMG_2610.JPG" alt="Photo 13">
+            <img src="../image/Screenshot 2024-04-04 at 3.18.28 PM.png" alt="Photo 14">
+            <img src="../image/IMG_2609.JPG" alt="Photo 15">
+        </div>
     </div>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            const hamburger = document.querySelector('.hamburger');
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        document.querySelectorAll('#nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('nav-links').classList.remove('active');
+                document.querySelector('.hamburger').classList.remove('active');
+            });
+        });
+    </script>
 </body>
+
 </html>

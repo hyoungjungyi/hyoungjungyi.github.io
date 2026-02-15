@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hyunjung Yi</title>
+  <meta name="description"
+    content="Hyunjung Yi - Designing systems that explain uncertainty through decisions. Undergraduate researcher at Korea University and KIXLAB, KAIST.">
+  <title>Hyunjung Yi - Portfolio</title>
   <link rel="stylesheet" href="style.css">
-    <!-- Google Analytics -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y2QZR84LQ7"></script>
   <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-Y2QZR84LQ7');
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-Y2QZR84LQ7');
   </script>
-
 </head>
+
 <body class="home">
   <nav id="navbar">
+    <button class="hamburger" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
     <div id="nav-links">
       <a href="index.html">Main</a>
       <a href="awards/index.html">Awards</a>
@@ -45,11 +53,13 @@
 
     <div class="links">
       <span class="links-label">CV:</span>
-      <a class="icon-link" href="https://drive.google.com/file/d/1QeHpr1ppInEvhlyg4Dwgir7XLvN70RV6/view?usp=sharing" target="_blank" rel="noreferrer" aria-label="CV">
+      <a class="icon-link" href="https://drive.google.com/file/d/1QeHpr1ppInEvhlyg4Dwgir7XLvN70RV6/view?usp=sharing"
+        target="_blank" rel="noreferrer" aria-label="CV">
         <img src="image/mail.png" alt="CV icon">
       </a>
       <span class="links-label">Contacts:</span>
-      <a class="icon-link" href="https://www.linkedin.com/in/hyunjung-yi-10a921240/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+      <a class="icon-link" href="https://www.linkedin.com/in/hyunjung-yi-10a921240/" target="_blank" rel="noreferrer"
+        aria-label="LinkedIn">
         <img src="img/LinkedIn_logo.png" alt="LinkedIn icon">
       </a>
       <a class="icon-link" href="https://github.com/hyoungjungyi" target="_blank" rel="noreferrer" aria-label="GitHub">
@@ -57,5 +67,23 @@
       </a>
     </div>
   </div>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('nav-links');
+      const hamburger = document.querySelector('.hamburger');
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    }
+
+    // Close menu when clicking on a link
+    document.querySelectorAll('#nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('nav-links').classList.remove('active');
+        document.querySelector('.hamburger').classList.remove('active');
+      });
+    });
+  </script>
 </body>
+
 </html>
