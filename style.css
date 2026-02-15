@@ -1,245 +1,245 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
 
-@media (max-width: 768px) {
-    #nav-links a {
-        display: block; /* Stack the links vertically */
-        text-align: center; /* Center-align the link text */
-        padding: 10px; /* Add some padding for tap targets */
-        border-top: 1px solid #ccc; /* Optional: add a separator between links */
-        font-size: 16px;
+/* ============================================
+   MINIMALISTIC BLACK DESIGN SYSTEM
+   ============================================ */
+
+:root {
+    /* Colors - Minimalistic Black Theme */
+    --bg-primary: #000000;
+    --bg-secondary: #0a0a0a;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-hover: rgba(255, 255, 255, 0.06);
+
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --text-muted: #666666;
+
+    --accent-primary: #ffffff;
+    --accent-secondary: #888888;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.6);
+
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
     }
-    #nav-links {
-        padding: 0;
-    }
-    #navbar {
-        overflow: hidden; /* Ensure the navbar content fits within the area */
-    }
-    body{
-        align-items: center;
-    }
-    .main_container {
-        flex-direction: column; /* Stack elements vertically on smaller screens */
-        margin-top: 100px; /* Adjust top margin for smaller screens */
-    }
-    .message_container {
-        max-width: 100%; /* Use the full width on smaller screens */
-        margin: 0 20px; /* Adjust margin for smaller screens */
-    }
-    .award_card {
-        width: 90%; /* Make award cards use more of the screen */
-        height: auto; /* Adjust height to maintain aspect ratio */
-        margin: 10px auto; /* Center cards with auto margins */
-    }
-    /* Additional styles for responsiveness */
-    .photo_container {
-        max-width: 100%; /* Allow photo container to use full width */
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
 
+    to {
+        opacity: 1;
+    }
+}
 
-#navbar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #2f2f2f;
-    padding: 10px;
-    margin:0;
-    width: 100%;
-    color: #e6e6e6;
- }
- #nav-links {
-    display: flex;
-    list-style: none;
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+
+* {
+    margin: 0;
     padding: 0;
-    justify-content: center; 
-    align-items: center;
+    box-sizing: border-box;
 }
- #nav-links a {
-    color: #e6e6e6;
-    text-decoration: none;
-    align-items: center;
-    margin:0 50px;
- }
- #nav-links a:hover {
-    color: #ffffff;
- }
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-    background-color: #2f2f2f;
-    color: #e6e6e6;
-    font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
-.profile_card{
-    margin-right: 1px;
-    padding: 10px;
-    background-color: #ffffff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 40px;
-    overflow: hidden; 
-}
-.profile_card img {
-    width: 100%;
-    height: 200px; 
-    object-fit: cover;
-    display: block; 
-    border-radius: 40px;
-    margin: 0 auto; 
-}
-.main_container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: row;
-    text-align: left;
-    margin-top: 200px;
-
-}
-.main_container,
-.message_container {
-    color: #e6e6e6;
-}
-.message_container {
-    display: flex;
-    flex-direction: column; /* 문장들을 세로로 배치 */
-    align-items: left; 
-    max-width: 50%;
-    margin-left:20px;
-}
-.message_container h2 {
-    margin-top:10px;
-}
-
-.message_container h3 {
-    margin: 1px 0; /* h3 요소들 간의 간격 조절 */
-}
-
-.message_container h4 {
-    margin-top: 10px; 
-    font-size: 12px;
-    margin:0;
-    text-align: left;
-    align-items: center;
-    font-weight: normal;
-}
-
-/*awards*/
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-
-}
-
-.award_card {
-    background-color: #F2F2F2;
-    color: #111111;
-    border-radius: 40px;
-    overflow: hidden;
-    margin:20px 20px;
-    text-align: center;
-    position:relative;
-    height: 500px;
-    width: 400px; 
-    flex: 0 0 auto; /* 컨테이너 크기에 따라 크기를 조절하지 않음 */
-    justify-content: center; /* 수직 가운데 정렬 */
-    align-items: center; 
-}
-
-
-.carousel {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-
-/*.award_card img{
-    width: 100%; 
-    height: 500px; 
-    object-fit: cover;
-    display: block;  
-    border-radius: 40px;
-    margin:auto;
-    align-items: center;
-}*/
-.award_card img {
-    max-width: 100%; /* 부모 요소에 대한 최대 너비를 가지도록 설정 */
-    max-height: 100%; /* 부모 요소에 대한 최대 높이를 가지도록 설정 */
-    object-fit: contain; /* 이미지가 자리를 차지하지 않으면서 부모 요소의 크기에 맞게 조정됩니다. */
-    border-radius: 20px;
-    width:600px;
-    height:400px;
-    margin-top:20px;
-}
-
-
-.photo{
-    justify-content: center;
-}
-.photo_container{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    max-width: 600px;
-    margin:20px auto;
-}
-.photo_container img{
-    max-width: 100%;
-    object-fit: contain;
-    height: auto;
-}
-.marketing_section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-/* --- Home (main) page --- */
-body.home {
-    background-color: #2f2f2f;
-    color: #e6e6e6;
+    background: var(--bg-primary);
+    color: var(--text-primary);
     font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     min-height: 100vh;
+    overflow-x: hidden;
+    line-height: 1.6;
 }
+
+/* ============================================
+   NAVIGATION
+   ============================================ */
+
+#navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(12px);
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--glass-border);
+    animation: fadeIn 0.6s ease;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1001;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 2px;
+    background: var(--text-primary);
+    transition: var(--transition-smooth);
+    border-radius: 2px;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+#nav-links {
+    display: flex;
+    list-style: none;
+    gap: 48px;
+    padding: 0;
+}
+
+#nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    position: relative;
+    transition: var(--transition-smooth);
+    letter-spacing: 0.3px;
+}
+
+#nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--text-primary);
+    transition: width 0.3s ease;
+}
+
+#nav-links a:hover {
+    color: var(--text-primary);
+}
+
+#nav-links a:hover::after {
+    width: 100%;
+}
+
+/* ============================================
+   HOME PAGE - HERO SECTION
+   ============================================ */
 
 .hero {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 80px 24px;
+    padding: 120px 32px;
     display: flex;
     flex-direction: column;
-    gap: 48px;
+    gap: 64px;
     align-items: center;
     text-align: center;
 }
 
+.headline {
+    animation: fadeInUp 0.8s ease;
+}
+
 .headline h1 {
-    font-size: 30px;
-    line-height: 1.25;
-    margin: 0;
-    color: #f0f0f0;
+    font-size: 40px;
+    line-height: 1.4;
+    margin: 8px 0;
+    color: var(--text-primary);
     font-weight: 600;
-    letter-spacing: -0.3px;
+    letter-spacing: -0.5px;
 }
 
 .profile-row {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 36px;
+    gap: 56px;
     flex-wrap: wrap;
+    animation: fadeInUp 1s ease 0.2s both;
 }
 
 .portrait-frame {
-    width: 280px;
-    height: 320px;
+    width: 300px;
+    height: 340px;
     border-radius: 16px;
     overflow: hidden;
-    background: #d9dfe4;
-    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.25);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    position: relative;
+    transition: var(--transition-smooth);
+    animation: float 6s ease-in-out infinite;
+}
+
+.portrait-frame:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: var(--shadow-lg);
 }
 
 .portrait-frame img {
@@ -251,55 +251,441 @@ body.home {
 
 .bio {
     text-align: left;
-    min-width: 260px;
+    min-width: 280px;
 }
 
 .bio h2 {
-    margin: 0 0 12px;
-    font-size: 40px;
-    color: #e6e6e6;
-    font-weight: 600;
+    margin: 0 0 16px;
+    font-size: 48px;
+    color: var(--text-primary);
+    font-weight: 700;
+    letter-spacing: -1px;
 }
 
 .bio p {
-    margin: 6px 0;
+    margin: 10px 0;
     font-size: 22px;
-    color: #d0d0d0;
+    color: var(--text-secondary);
+    font-weight: 400;
 }
 
 .links {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 16px;
     flex-wrap: wrap;
-    font-size: 22px;
+    font-size: 18px;
+    animation: fadeInUp 1.2s ease 0.4s both;
 }
 
 .links-label {
-    color: #e6e6e6;
-    font-weight: 500;
-    margin-right: 4px;
+    color: var(--text-primary);
+    font-weight: 600;
+    margin-right: 8px;
+}
+
+.icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    transition: var(--transition-smooth);
 }
 
 .icon-link img {
-    width: 36px;
-    height: 36px;
+    width: 26px;
+    height: 26px;
     object-fit: contain;
-    opacity: 0.9;
-    transition: transform 0.15s ease, opacity 0.15s ease;
+    opacity: 0.8;
+    transition: var(--transition-smooth);
+}
+
+.icon-link:hover {
+    transform: translateY(-4px);
+    background: var(--glass-hover);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: var(--shadow-md);
 }
 
 .icon-link:hover img {
     opacity: 1;
-    transform: translateY(-2px);
 }
 
+/* ============================================
+   CARDS - AWARDS, WORK, PUBLICATIONS
+   ============================================ */
+
+.container {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 28px;
+    padding: 80px 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.award_card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 32px;
+    text-align: left;
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    min-height: 480px;
+    transition: var(--transition-smooth);
+    animation: scaleIn 0.6s ease both;
+    display: flex;
+    flex-direction: column;
+}
+
+.award_card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.award_card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.award_card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.award_card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.award_card:hover {
+    transform: translateY(-8px);
+    background: var(--glass-hover);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: var(--shadow-lg);
+}
+
+.award_card img {
+    max-width: 100%;
+    max-height: 180px;
+    object-fit: contain;
+    border-radius: 12px;
+    margin: 0 auto 24px;
+    display: block;
+    transition: var(--transition-smooth);
+}
+
+.award_card:hover img {
+    transform: scale(1.03);
+}
+
+.award_card h3 {
+    font-size: 20px;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.award_card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.award_card li {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.8;
+    margin-bottom: 8px;
+    padding-left: 18px;
+    position: relative;
+}
+
+.award_card li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--text-primary);
+    font-weight: bold;
+}
+
+.award_card a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: var(--transition-smooth);
+    border-bottom: 1px solid transparent;
+}
+
+.award_card a:hover {
+    border-bottom-color: var(--text-primary);
+}
+
+/* ============================================
+   PHOTO GALLERY
+   ============================================ */
+
+.photo {
+    justify-content: center;
+    padding: 80px 32px;
+}
+
+.photo_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.photo_container img {
+    max-width: 100%;
+    object-fit: contain;
+    height: auto;
+    border-radius: 12px;
+    transition: var(--transition-smooth);
+    border: 1px solid var(--glass-border);
+}
+
+.photo_container img:hover {
+    transform: scale(1.02);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: var(--shadow-md);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - MOBILE FIRST
+   ============================================ */
+
 @media (max-width: 768px) {
-    .headline h1 {
-        font-size: 20px;
+
+    /* Navigation */
+    #navbar {
+        padding: 16px 20px;
+        justify-content: space-between;
     }
+
+    .hamburger {
+        display: flex;
+    }
+
+    #nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        gap: 32px;
+        text-align: center;
+        padding: 80px 20px 40px;
+        transform: translateY(-100%);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        border-bottom: 1px solid var(--glass-border);
+    }
+
+    #nav-links.active {
+        transform: translateY(0);
+    }
+
+    #nav-links a {
+        font-size: 18px;
+    }
+
+    /* Hero Section */
+    .hero {
+        padding: 60px 24px;
+        gap: 48px;
+    }
+
+    .headline h1 {
+        font-size: 26px;
+        line-height: 1.4;
+    }
+
+    .profile-row {
+        gap: 32px;
+    }
+
+    .portrait-frame {
+        width: 280px;
+        height: 320px;
+    }
+
     .bio {
+        text-align: center;
+    }
+
+    .bio h2 {
+        font-size: 36px;
+    }
+
+    .bio p {
+        font-size: 18px;
+    }
+
+    /* Cards */
+    .container {
+        padding: 60px 20px;
+        gap: 24px;
+    }
+
+    .award_card {
+        width: 100%;
+        max-width: 100%;
+        min-height: auto;
+        padding: 28px;
+    }
+
+    .award_card h3 {
+        font-size: 18px;
+    }
+
+    .award_card li {
+        font-size: 13px;
+    }
+
+    /* Links */
+    .links {
+        font-size: 16px;
+        gap: 12px;
+    }
+
+    .icon-link {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+@media (max-width: 480px) {
+    .headline h1 {
+        font-size: 22px;
+    }
+
+    .bio h2 {
+        font-size: 32px;
+    }
+
+    .bio p {
+        font-size: 16px;
+    }
+
+    .portrait-frame {
+        width: 260px;
+        height: 300px;
+    }
+
+    .container {
+        padding: 40px 16px;
+    }
+
+    .award_card {
+        padding: 24px;
+    }
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.marketing_section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.main_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    text-align: left;
+    margin-top: 100px;
+    animation: fadeInUp 0.8s ease;
+}
+
+.message_container {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    max-width: 50%;
+    margin-left: 20px;
+    color: var(--text-primary);
+}
+
+.message_container h2 {
+    margin-top: 10px;
+    color: var(--text-primary);
+}
+
+.message_container h3 {
+    margin: 8px 0;
+    color: var(--text-secondary);
+}
+
+.message_container h4 {
+    margin-top: 10px;
+    font-size: 14px;
+    margin: 0;
+    text-align: left;
+    font-weight: normal;
+    color: var(--text-muted);
+}
+
+.profile_card {
+    margin-right: 1px;
+    padding: 10px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-sm);
+    border-radius: 20px;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+}
+
+.profile_card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.profile_card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px;
+    margin: 0 auto;
+}
+
+.carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Mobile responsiveness for utility classes */
+@media (max-width: 768px) {
+    .main_container {
+        flex-direction: column;
+        margin-top: 60px;
+    }
+
+    .message_container {
+        max-width: 100%;
+        margin-left: 0;
         text-align: center;
     }
 }
