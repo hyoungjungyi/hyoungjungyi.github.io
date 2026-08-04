@@ -304,6 +304,11 @@ section {
     vertical-align: middle;
 }
 
+.tag.tag-accepted {
+    background: #e3f5e9;
+    color: #1e7a3e;
+}
+
 /* ============================================
    PUBLICATIONS (author list, venue)
    ============================================ */
