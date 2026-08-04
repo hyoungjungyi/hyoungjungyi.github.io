@@ -1,7 +1,0 @@
-streamlit 
-yfinance 
-matplotlib 
-plotly
-pandas
-pymysql
-sshtunnel
