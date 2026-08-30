@@ -401,6 +401,11 @@
     <p>Hyunjung (Haley) Yi · hyoungjung.yi@gmail.com</p>
   </footer>
 
+  <div id="rubi-mascot" aria-hidden="true" title="click me!">
+    <div id="rubi-bubble"></div>
+    <img id="rubi-img" src="assets/rubi_original.png" alt="">
+  </div>
+
   <script>
     function toggleMenu() {
       const navLinks = document.getElementById('nav-links');
@@ -422,6 +427,215 @@
         document.querySelector('.hamburger').classList.remove('active');
       });
     });
+
+    // ---- Rubi the mascot ----
+    (function () {
+      const rubi = document.getElementById('rubi-mascot');
+      const bubble = document.getElementById('rubi-bubble');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const tmi = {
+        hero: [
+          "hii i'm rubi 🍡 haley's tiny mascot — click me!",
+          "i live in the corner of this website and i approve of it",
+          "click and hold me to drag me around!",
+        ],
+        education: [
+          "Go Tigers!!",
+          "Go Trojans!!",
+        ],
+        publications: [
+          "Watch out for upcoming papers...",
+          "Click on the Paper button for more information!!",
+        ],
+        research: [
+          "efficient AI = making huge models smaller without losing their brains 🧠"
+        ],
+        work: [
+          "I don't work I'm a pillow",
+        ],
+        awards: [
+          "Whats a hackathon? I just jump around here all day"
+        ],
+        extracurricular: [
+          "I can jump!!"
+        ],
+        skills: [
+          "She also enjoys baking and watching movies"
+        ],
+      };
+
+      let currentKey = 'hero';
+      let msgIndex = 0;
+
+      function showBubble(text) {
+        bubble.textContent = text;
+        bubble.classList.add('visible');
+        clearTimeout(showBubble._t);
+        showBubble._t = setTimeout(() => bubble.classList.remove('visible'), 4200);
+      }
+
+      function jump() {
+        if (reduceMotion) return;
+        rubi.classList.remove('jump');
+        void rubi.offsetWidth; // restart animation
+        rubi.classList.add('jump');
+      }
+
+      function speakFor(key) {
+        const lines = tmi[key] || tmi.hero;
+        if (key !== currentKey) {
+          currentKey = key;
+          msgIndex = 0;
+        }
+        showBubble(lines[msgIndex % lines.length]);
+        jump();
+      }
+
+      // Watch sections (+ hero header) to auto-speak relevant TMI on scroll.
+      // Standard "scrollspy" rule: the active section is the last one whose
+      // top has scrolled up past a fixed line near the top of the viewport.
+      const targets = [
+        { el: document.querySelector('.hero'), key: 'hero' },
+        ...Array.from(document.querySelectorAll('.resume > section[id]')).map(el => ({ el, key: el.id })),
+      ].filter(t => t.el);
+
+      let lastSpoken = '';
+      let ticking = false;
+      const SCROLLSPY_LINE = 140; // px from top of viewport (below the sticky navbar)
+
+      function updateActiveSection() {
+        ticking = false;
+        let active = targets[0];
+        for (const t of targets) {
+          if (t.el.getBoundingClientRect().top <= SCROLLSPY_LINE) {
+            active = t;
+          }
+        }
+        if (active && active.key !== lastSpoken) {
+          lastSpoken = active.key;
+          speakFor(active.key);
+        }
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(updateActiveSection);
+        }
+      }, { passive: true });
+
+      // ---- Drag Rubi anywhere on the page ----
+      const DRAG_THRESHOLD = 6; // px of movement before a click becomes a drag
+      const MARGIN = 8; // keep Rubi fully on-screen
+
+      function clamp(val, min, max) {
+        return Math.min(Math.max(val, min), max);
+      }
+
+      // Flip the speech bubble to whichever side keeps it on-screen
+      function updateBubbleSide() {
+        const rect = rubi.getBoundingClientRect();
+        rubi.classList.toggle('bubble-below', rect.top < 110);
+        rubi.classList.toggle('bubble-left', rect.left < 220);
+      }
+
+      function pinRubiAt(left, top) {
+        const w = rubi.offsetWidth;
+        const h = rubi.offsetHeight;
+        left = clamp(left, MARGIN, window.innerWidth - w - MARGIN);
+        top = clamp(top, MARGIN, window.innerHeight - h - MARGIN);
+        rubi.style.left = left + 'px';
+        rubi.style.top = top + 'px';
+        rubi.style.right = 'auto';
+        rubi.style.bottom = 'auto';
+        updateBubbleSide();
+        return { left, top };
+      }
+
+      function savePosition(left, top) {
+        try {
+          localStorage.setItem('rubi-pos', JSON.stringify({ left, top }));
+        } catch (e) { /* storage unavailable — position just won't persist */ }
+      }
+
+      // Restore a previously-dragged position, if any
+      (function restorePosition() {
+        try {
+          const saved = JSON.parse(localStorage.getItem('rubi-pos'));
+          if (saved && Number.isFinite(saved.left) && Number.isFinite(saved.top)) {
+            pinRubiAt(saved.left, saved.top);
+          } else {
+            updateBubbleSide();
+          }
+        } catch (e) {
+          updateBubbleSide();
+        }
+      })();
+
+      window.addEventListener('resize', () => {
+        const rect = rubi.getBoundingClientRect();
+        pinRubiAt(rect.left, rect.top);
+      });
+
+      // Tracking is done on `window` (not just the small rubi element) so the
+      // drag keeps working even if the cursor drifts off Rubi's tiny hitbox
+      // mid-move — don't rely on setPointerCapture alone for this.
+      let dragStartX = 0, dragStartY = 0, startLeft = 0, startTop = 0, moved = false, pointerId = null;
+
+      rubi.addEventListener('pointerdown', (e) => {
+        if (e.button !== undefined && e.button !== 0) return; // left click / touch only
+        const rect = rubi.getBoundingClientRect();
+        dragStartX = e.clientX;
+        dragStartY = e.clientY;
+        startLeft = rect.left;
+        startTop = rect.top;
+        moved = false;
+        pointerId = e.pointerId;
+        try { rubi.setPointerCapture(pointerId); } catch (err) { /* not critical — window listeners still track it */ }
+        e.preventDefault();
+      });
+
+      window.addEventListener('pointermove', (e) => {
+        if (pointerId === null || e.pointerId !== pointerId) return;
+        const dx = e.clientX - dragStartX;
+        const dy = e.clientY - dragStartY;
+        if (!moved && Math.hypot(dx, dy) < DRAG_THRESHOLD) return;
+        if (!moved) {
+          moved = true;
+          rubi.classList.add('dragging');
+        }
+        pinRubiAt(startLeft + dx, startTop + dy);
+      });
+
+      function endDrag(e) {
+        if (pointerId === null || e.pointerId !== pointerId) return;
+        try { rubi.releasePointerCapture(pointerId); } catch (err) { /* already released or never captured */ }
+        pointerId = null;
+        rubi.classList.remove('dragging');
+        if (moved) {
+          const rect = rubi.getBoundingClientRect();
+          savePosition(rect.left, rect.top);
+        } else {
+          // it was just a click/tap — cycle to more TMI
+          msgIndex++;
+          speakFor(currentKey);
+        }
+      }
+
+      window.addEventListener('pointerup', endDrag);
+      window.addEventListener('pointercancel', endDrag);
+
+      // Idle little hops so Rubi feels alive
+      if (!reduceMotion) {
+        setInterval(() => {
+          if (!bubble.classList.contains('visible')) jump();
+        }, 5000);
+      }
+
+      // Say hi shortly after load
+      setTimeout(updateActiveSection, 900);
+    })();
   </script>
 </body>
 
